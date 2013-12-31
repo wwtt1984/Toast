@@ -21,8 +21,7 @@ Toast.prototype._callNative = function (action, args) {
  * @returns {*}
  */
 Toast.prototype.ShowToast = function (content, length) {
-    this._callNative("Toast", [content,length]);
-    return this;
+    return cordova.exec(null, null,"ToastPlugin","Toast",[content,length]);
 };
 
 module.exports = (new Toast());
