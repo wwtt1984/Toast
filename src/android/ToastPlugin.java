@@ -1,4 +1,4 @@
-﻿package com.toast.toast;
+package com.toast.toast;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
@@ -25,6 +25,6 @@ public class ToastPlugin extends CordovaPlugin {
                 Toast.makeText(cordova.getActivity(), message,length).show();
             }
         };
-        this.cordova.getActivity().getApplicationContext();
+       this.cordova.getActivity().runOnUiThread(runnable);
     }
 }

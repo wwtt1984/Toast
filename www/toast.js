@@ -24,8 +24,8 @@ Toast.prototype._callNative = function (action, args, successCallback) {
  * @param callback
  * @returns {*}
  */
-Toast.prototype.ShowToast = function (msg, callback) {
-    this._callNative("Toast", [msg], callback);
+Toast.prototype.ShowToast = function (msg,timeout, callback) {
+    this._callNative("Toast", [msg,timeout], callback);
     return this;
 };
 
