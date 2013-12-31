@@ -1,16 +1,12 @@
 var Toast = function () {};
 
-Toast.prototype._failureCallback = function (msg) {
-    console.log("Toast Javascript Callback Error: " + msg)
-};
-
-Toast.prototype._callNative = function (action, args, successCallback) {
+Toast.prototype._callNative = function (action, args) {
     if (arguments.length == 2) {
         args = []
     }
     return cordova.exec(
-        successCallback, // called when signature capture is successful
-        this._failureCallback, // called when signature capture encounters an error
+        null, // called when signature capture is successful
+        null, // called when signature capture encounters an error
         'ToastPlugin', // Tell cordova that we want to run "JPush"
         action, // Tell the plugin the action we want to perform
         args); // List of arguments to the plugin
@@ -24,8 +20,8 @@ Toast.prototype._callNative = function (action, args, successCallback) {
  * @param callback
  * @returns {*}
  */
-Toast.prototype.ShowToast = function (msg,timeout, callback) {
-    this._callNative("Toast", [msg,timeout], callback);
+Toast.prototype.ShowToast = function (msg , timeout) {
+    this._callNative("Toast", [msg,timeout]);
     return this;
 };
 
