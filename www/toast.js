@@ -1,4 +1,4 @@
-var Toast = function () {};
+﻿var Toast = function () {};
 
 Toast.prototype._callNative = function (action, args) {
     if (arguments.length == 2) {
@@ -20,7 +20,7 @@ Toast.prototype._callNative = function (action, args) {
  * @param callback
  * @returns {*}
  */
-Toast.prototype.ShowToast = function (msg , timeout) {
+Toast.prototype.ShowToast = function (msg, timeout) {
     this._callNative("Toast", [msg,timeout]);
     return this;
 };
